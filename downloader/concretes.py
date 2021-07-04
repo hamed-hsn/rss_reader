@@ -1,4 +1,3 @@
-from _typeshed import NoneType
 from downloader.abstract import AbstractDownloader
 import requests
 from typing import Dict, Tuple, Union
@@ -18,7 +17,7 @@ class CommonDownloader(AbstractDownloader):
     
 class FeaturedDownloader(AbstractDownloader):
 
-    def __init__(self, url, timeout:Tuple(int, int)=(5,15), proxies:Union[NoneType, Dict]=None):
+    def __init__(self, url, timeout:Tuple[int, int]=(5,15), proxies:Union[None, Dict]=None):
         super().__init__(url)
         self._timeout = timeout
         self._proxies = proxies
@@ -33,13 +32,8 @@ class FeaturedDownloader(AbstractDownloader):
 
 class JavaScriptRenderableDownloader(AbstractDownloader):
 
-    DOWNLOADER_NOT_SET_STATUS_CODE = -1
-    DOWNLOADER_NOT_SET_TEXT = 'BAD'
-
     def __init__(self, url):
         super().__init__(url)        
-        self._text = self.DOWNLOADER_NOT_SET_TEXT
-        self._status_code = self.DOWNLOADER_NOT_SET_STATUS_CODE
 
     def download(self):
         session = HTMLSession()

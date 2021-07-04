@@ -17,6 +17,7 @@ class AbstractDownloader(ABC):
         self._text = self.DOWNLOADER_NOT_SET_TEXT
         self._status_code = self.DOWNLOADER_NOT_SET_STATUS_CODE
 
+    @property
     def url(self):
         return self._url
     
@@ -41,7 +42,7 @@ class AbstractDownloader(ABC):
         raise ReadOnlyAttrError('[-] status-code attribute is readOnly!')
     
     @property    
-    def text(self, v):
+    def text(self):
         if self._text == self.DOWNLOADER_NOT_SET_TEXT:
             raise DownloadMethodNotCallError('download method not called!')
         return self._text
