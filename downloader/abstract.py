@@ -49,4 +49,4 @@ class AbstractDownloader(ABC):
 
     @text.setter
     def text(self, v):
-        raise ReadOnlyAttrError('[-] status-code attribute is readOnly!')
+        raise ReadOnlyAttrError('[-] text attribute is readOnly!')
