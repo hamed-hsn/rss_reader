@@ -10,6 +10,7 @@ class CommonDownloader(AbstractDownloader):
         super().__init__(url)    
 
     def download(self):
+        print(f'[+] download link : {self.url}')
         res = requests.get(self.url)
         self._status_code = res.status_code
         self._text = res.text

@@ -26,7 +26,8 @@ class CommonScraper(BaseScraper):
     def items(self, v):
         raise ReadOnlyAttrError("[-] items attr is readonly")
 
-    def scrape(self):
+    def scrape(self):        
         soup = BeautifulSoup(self._content, 'lxml')
         for k, v in self._pattern.items():
+            print(f'[+] scrape {k}')
             self.addItem(k, soup.select(v))

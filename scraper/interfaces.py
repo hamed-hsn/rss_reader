@@ -1,4 +1,4 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta, abstractmethod, abstractproperty
 
 
 class InterfaceScraper(metaclass=ABCMeta):
@@ -16,3 +16,6 @@ class InterfaceScraper(metaclass=ABCMeta):
     def scrape(self):
         raise NotImplementedError('[-] Not implemented yet!')
 
+    @abstractproperty
+    def items(self):
+        raise NotImplementedError('[-] Not implemented yet!')
